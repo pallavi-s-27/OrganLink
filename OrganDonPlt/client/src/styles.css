@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-slate-100 min-h-screen;
+  background-attachment: fixed;
+}
+
+.glass-panel {
+  @apply bg-slate-900/40 backdrop-blur-2xl border border-white/10 shadow-card relative overflow-hidden;
+}
+
+.glass-panel::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-br from-white/5 via-transparent to-white/5 pointer-events-none;
+}
+
+.glass-panel-elevated {
+  @apply glass-panel shadow-2xl border-white/20;
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.7) 0%, rgba(30, 41, 59, 0.5) 100%);
+}
+
+.glass-panel-elevated::before {
+  @apply bg-gradient-to-br from-white/10 via-transparent to-brand-500/10;
+}
+
+input,
+select,
+textarea {
+  @apply bg-slate-800/50 border border-white/10 rounded-2xl px-4 py-3.5 text-sm text-slate-100 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-brand-500/50 focus:border-brand-500/50 transition-all duration-200 shadow-inner-glow;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  @apply bg-slate-800/70 transform scale-[1.02];
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand-500 to-brand-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-brand-500/30 transition-all duration-200 hover:shadow-glow hover:from-brand-400 hover:to-brand-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 active:scale-95;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-accent-500 to-accent-600 px-6 py-3.5 font-semibold text-white shadow-lg shadow-accent-500/30 transition-all duration-200 hover:shadow-glow-blue hover:from-accent-400 hover:to-accent-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-300 active:scale-95;
+}
+
+.btn-muted {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 px-6 py-3.5 font-semibold text-white/90 transition-all duration-200 hover:bg-white/20 hover:border-white/30 active:scale-95;
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-2xl px-6 py-3.5 font-semibold text-white/80 transition-all duration-200 hover:bg-white/10 hover:text-white active:scale-95;
+}
+
+.animate-in {
+  @apply animate-slide-up;
+}
+
+.metric-card {
+  @apply glass-panel-elevated rounded-2xl sm:rounded-3xl p-4 sm:p-6 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-105 hover:shadow-2xl cursor-pointer;
+}
+
+.status-indicator {
+  @apply relative inline-flex;
+}
+
+.status-indicator::before {
+  content: '';
+  @apply absolute -inset-1 bg-current rounded-full animate-ping opacity-30;
+}
+
+.floating-element {
+  @apply animate-float;
+}
+
+/* Responsive utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
